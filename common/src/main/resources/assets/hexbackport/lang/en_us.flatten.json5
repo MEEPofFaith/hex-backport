@@ -20,7 +20,7 @@
   hexcasting: {
     action: {
       "hexbackport:": {
-        backport_foreach: "Thoth's Gambit+"
+        backport_foreach: "Thoth's Gambit +"
       },
 
       book: {
@@ -30,7 +30,7 @@
       },
     },
     "special.hexbackport:": {
-      backport_foreach: "Thoth's Gambit+: %s"
+      backport_foreach: "Thoth's Gambit +: %s"
     }
   },
 
