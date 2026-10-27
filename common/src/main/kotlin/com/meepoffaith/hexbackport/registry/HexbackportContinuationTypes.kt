@@ -9,7 +9,7 @@ class HexbackportContinuationTypes : HexbackportRegistrar<ContinuationFrame.Type
     HexRegistries.CONTINUATION_TYPE,
     { HexContinuationTypes.REGISTRY }
 ){
-    val NEWFOREACH = make("backport_foreach", FrameNewForEach.TYPE)
+    val BACKPORT_FOREACH = make("backport_foreach", FrameNewForEach.TYPE)
 
     private fun <U: ContinuationFrame, T: ContinuationFrame.Type<U>> make(name: String, continuation: T) : T{
         register(name) { continuation }
