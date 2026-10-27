@@ -18,7 +18,7 @@ import net.minecraft.nbt.CompoundTag
 import net.minecraft.nbt.Tag
 import net.minecraft.server.level.ServerLevel
 
-data class FrameNewForEach(
+data class FrameBackportForEach(
     val data: List<Iota>,
     val code: SpellList,
     val contextStack: List<Iota>,
@@ -49,7 +49,7 @@ data class FrameNewForEach(
             stack.add(data.first())
             val cont2 = continuation
                 // put the next Thoth object back on the stack for the next Thoth cycle,
-                .pushFrame(FrameNewForEach(data.drop(1), code, contextStack, stashedStack, newAcc))
+                .pushFrame(FrameBackportForEach(data.drop(1), code, contextStack, stashedStack, newAcc))
                 // and prep the Thoth'd code block for evaluation.
                 .pushFrame(FrameEvaluate(code, true))
             Triple(stack, harness.image.withUsedOp(), cont2)
@@ -85,9 +85,9 @@ data class FrameNewForEach(
 
     companion object{
         @JvmField
-        val TYPE: ContinuationFrame.Type<FrameNewForEach> = object : ContinuationFrame.Type<FrameNewForEach>{
-            override fun deserializeFromNBT(tag: CompoundTag, world: ServerLevel): FrameNewForEach{
-                return FrameNewForEach(
+        val TYPE: ContinuationFrame.Type<FrameBackportForEach> = object : ContinuationFrame.Type<FrameBackportForEach>{
+            override fun deserializeFromNBT(tag: CompoundTag, world: ServerLevel): FrameBackportForEach{
+                return FrameBackportForEach(
                     HexIotaTypes.LIST.deserialize(tag.getList("data", Tag.TAG_COMPOUND), world)!!.list.toList(),
                     HexIotaTypes.LIST.deserialize(tag.getList("code", Tag.TAG_COMPOUND), world)!!.list,
                     HexIotaTypes.LIST.deserialize(tag.getList("contextStack", Tag.TAG_COMPOUND), world)!!.list.toList(),

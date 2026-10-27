@@ -17,12 +17,12 @@ import at.petrak.hexcasting.api.utils.lightPurple
 import at.petrak.hexcasting.common.lib.hex.HexEvalSounds
 import at.petrak.hexcasting.xplat.IXplatAbstractions
 import com.meepoffaith.hexbackport.Hexbackport
-import com.meepoffaith.hexbackport.casting.eval.vm.FrameNewForEach
+import com.meepoffaith.hexbackport.casting.eval.vm.FrameBackportForEach
 import com.meepoffaith.hexbackport.registry.HexbackportSpecialHandlers
 import net.minecraft.network.chat.Component
 import net.minecraft.resources.ResourceLocation
 
-class SpecialHandlerNewForEach(val n: Int) : SpecialHandler {
+class SpecialHandlerBackportForEach(val n: Int) : SpecialHandler {
     override fun act() = InnerAction(n)
 
     override fun getName(): Component {
@@ -47,15 +47,15 @@ class SpecialHandlerNewForEach(val n: Int) : SpecialHandler {
             val contextStack = stack.takeLast(n)
             val stashedStack = stack.dropLast(n)
 
-            val frame = FrameNewForEach(datums, instrList, contextStack, stashedStack, listOf())
+            val frame = FrameBackportForEach(datums, instrList, contextStack, stashedStack, listOf())
             val image2 = image.withUsedOp().copy(stack = listOf())
 
             return OperationResult(image2, listOf(), continuation.pushFrame(frame), HexEvalSounds.THOTH)
         }
     }
 
-    class Factory : SpecialHandler.Factory<SpecialHandlerNewForEach>{
-        override fun tryMatch(pattern: HexPattern, env: CastingEnvironment): SpecialHandlerNewForEach? {
+    class Factory : SpecialHandler.Factory<SpecialHandlerBackportForEach>{
+        override fun tryMatch(pattern: HexPattern, env: CastingEnvironment): SpecialHandlerBackportForEach? {
             val sig = pattern.anglesSignature()
             if(sig.startsWith("waaddw")){
                 val suffix = sig.substring(6)
@@ -68,7 +68,7 @@ class SpecialHandlerNewForEach(val n: Int) : SpecialHandler {
                     tailLength++
                 }
 
-                return SpecialHandlerNewForEach(tailLength)
+                return SpecialHandlerBackportForEach(tailLength)
             }
             return null
         }
