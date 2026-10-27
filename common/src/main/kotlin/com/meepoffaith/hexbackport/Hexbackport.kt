@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger
 import com.meepoffaith.hexbackport.config.HexbackportServerConfig
 import com.meepoffaith.hexbackport.networking.HexbackportNetworking
 import com.meepoffaith.hexbackport.registry.HexbackportActions
+import com.meepoffaith.hexbackport.registry.HexbackportSpecialHandlers
 
 object Hexbackport {
     const val MODID = "hexbackport"
@@ -20,6 +21,7 @@ object Hexbackport {
         HexbackportServerConfig.init()
         initRegistries(
             HexbackportActions,
+            HexbackportSpecialHandlers
         )
         HexbackportNetworking.init()
     }
