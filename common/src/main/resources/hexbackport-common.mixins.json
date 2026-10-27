@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "com.meepoffaith.hexbackport.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "MixinDatagenMain"
+  ],
+  "plugin": "com.meepoffaith.hexbackport.mixin.HexbackportMixinConfigPlugin",
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
