@@ -2,44 +2,36 @@
   hexbackport: {
     book: {
       patterns: {
-        spells: {
-          dummy_spells: {
-            "": "Dummy Spells",
-            congratulate: "Remove an entity from the stack, then congratulate them.",
-          },
-        },
-        great_spells: {
-          dummy_great_spells: {
-            "": "Dummy Great Spells",
-            "congratulate/great": "Same as $(l:patterns/spells/dummy_spells#hexbackport:congratulate)$(action)Congratulate/$, but as a great spell.",
-          },
-        },
+        backports: "Backported Patterns"
       },
     },
+    page: {
+      backports: {
+        info: "In a strange inversion of causality, these patterns seem to have arrived from the future? Nonetheless, they are now usable in my time period.",
+        for_each: {
+          "1": "A family of patterns that pops an evaluatable iota, a data list, and $(o)n/$ iotas of context from the stack, determined by tail length. Then cast the evaluatable over each element of the first list.",
+          "2": "In the examples, the context size is 0, 1, and 2 iotas, going clockwise from the top left.$(br2)Specifically, for each data value, it will:$(li)create a sub-stack, populated with a copy of the context iotas$(li)push the data value$(li)cast the evaluatable iota$(li)store all iotas remaining on the sub-stack to a hidden list$(br2)Finally, it restores the original stack, and pushes the hidden list onto the stack.",
+          "3": "For example, if I had the number 5, a list of [1, 2, 3], and a $(l:patterns/patterns_as_iotas)$(thing)pattern iota/$ of $(l:patterns/math#hexcasting:add)$(action)Additive Distillation/$ on my stack, I can draw $(l:patterns/meta#hexcasting:for_each)$(action)Thoth's Gambit: 1/$ to obtain a list of [6, 7, 8], with nothing else left on my stack.$(br2)Certainly difficult to wrap my head around, but it seems worth learning. I can already think of multiple applications for this pattern."
+        }
+      }
+    }
   },
 
   hexcasting: {
     action: {
       "hexbackport:": {
-        congratulate: "Congratulate Player",
-        "congratulate/great": "Great Congrats!",
+        backport_foreach: "NeoThoth's Gambit"
       },
 
-      // use this to add shortened versions of pattern names if the full name won't fit in the ingame book
-      // you don't need to add an entry for every pattern - the above value will be used as a default
       book: {
         "hexbackport:": {
-          congratulate: "Congratulate",
+
         },
       },
     },
   },
 
   text: {
-    hexbackport: {
-      congrats: "Tell %1$s they're doing a good job!",
-    },
-
     "autoconfig.hexbackport": {
       title: "HexBackport Config",
 

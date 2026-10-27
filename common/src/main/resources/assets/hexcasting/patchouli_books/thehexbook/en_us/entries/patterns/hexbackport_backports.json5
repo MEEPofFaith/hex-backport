@@ -1,0 +1,45 @@
+{
+  name: "hexbackport.book.patterns.backports",
+  category: "hexcasting:patterns",
+  icon: "minecraft:end_crystal",
+  advancement: "hexcasting:root",
+  pages: [
+    {
+      "type": "patchouli:text",
+      "text": "hexbackport.page.backports.info"
+    },
+    {
+      "type": "patchouli:empty"
+    },
+    {
+      "type": "hexcasting:manual_pattern",
+      "op_id": "hexbackport:backport_foreach",
+      "anchor": "hexbackport:backport_foreach",
+      "input": "many, list, evaluatable",
+      "output": "list",
+      "text": "hexbackport.page.backports.for_each.1",
+      "patterns": [
+        {
+          "startdir": "EAST",
+          "signature": "waaddw"
+        },
+        {
+          "startdir": "EAST",
+          "signature": "waaddwda"
+        },
+        {
+          "startdir": "EAST",
+          "signature": "waaddwdaad"
+        }
+      ]
+    },
+    {
+      "type": "patchouli:text",
+      "text": "hexbackport.page.backports.for_each.2"
+    },
+    {
+      "type": "patchouli:text",
+      "text": "hexbackport.page.backports.for_each.3"
+    }
+  ],
+}
