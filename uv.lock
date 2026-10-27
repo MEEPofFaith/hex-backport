@@ -588,22 +588,22 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "hexdoc-hexcasting", specifier = "~=0.11.3.1.0" }]
+requires-dist = [{ name = "hexdoc-hexcasting", specifier = "~=0.11.4.1.0" }]
 
 [package.metadata.requires-dev]
 dev = [{ name = "ruff" }]
 
 [[package]]
 name = "hexdoc-hexcasting"
-version = "0.11.3.1.0"
+version = "0.11.4.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "hexdoc" },
     { name = "hexdoc-minecraft" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/46/e3/dbb8f5b089bc924ade14c29b3f182666991ce23bd1d84f11894061ca591e/hexdoc_hexcasting-0.11.3.1.0.tar.gz", hash = "sha256:ced6958edb72f3e9666019aa2d1dc0d812ae31db5236e0836ec1bbb42b4a8a0e", size = 1039950, upload-time = "2025-11-22T20:54:23.994Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e9/09/23bcc4e9385843570f9f8a452c55ebe755fe0ad5815aca5d9d0ede7c42c1/hexdoc_hexcasting-0.11.4.1.0.tar.gz", hash = "sha256:81e676b948a3249238ca1f13129f9e08156e7efb7bc0a5d4d6a6596b455808ca", size = 1303761, upload-time = "2026-08-26T04:53:35.956Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/79/e5/0b963c186741a55e4d92053e5a7a4e8c70d4a2c03911f8b2affd38811f76/hexdoc_hexcasting-0.11.3.1.0-py3-none-any.whl", hash = "sha256:1cca00f1699fdf2e7b6b0440120fbbcb960125a158161a94cdd8b1c3746b34a3", size = 1480134, upload-time = "2025-11-22T20:54:21.796Z" },
+    { url = "https://files.pythonhosted.org/packages/78/8a/ce8da2b72e1041510e2ed55b0633722d5fc52f5fc4e4e1367b9033788f51/hexdoc_hexcasting-0.11.4.1.0-py3-none-any.whl", hash = "sha256:d536d359334f48373f9c89cb8a8ef2a785638f5ac79d39d65fe9e0be0edb559a", size = 1757377, upload-time = "2026-08-26T04:53:34.266Z" },
 ]
 
 [[package]]
