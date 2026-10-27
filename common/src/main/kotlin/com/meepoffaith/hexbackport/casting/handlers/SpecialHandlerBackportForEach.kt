@@ -74,8 +74,4 @@ class SpecialHandlerBackportForEach(val n: Int) : SpecialHandler {
         }
 
     }
-
-    companion object{
-        public val NAME: ResourceLocation = Hexbackport.id("backport_foreach")
-    }
 }
