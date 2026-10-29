@@ -8,8 +8,8 @@ build-backend = "hatchling.build"
 # project metadata
 
 [project]
-name = "hexdoc-hexbackport"
-description = "Backports stuff from the 1.21 version of Hex Casting"
+name = "hexdoc-hextrapats"
+description = "Random pattern ideas that come to my head. Mostly utility."
 readme = "doc/README.md"
 authors = [
     { name="MEEPofFaith" },
@@ -19,23 +19,24 @@ requires-python = ">=3.12"
 dynamic = ["version", "dependencies", "optional-dependencies"]
 
 [project.urls]
-Homepage = "https://meepoffaith.github.io/hex-backport"
-Source = "https://github.com/MEEPofFaith/hex-backport"
+Homepage = "https://meepoffaith.github.io/hextra-patterns"
+Source = "https://github.com/MEEPofFaith/hextra-patterns"
 
 # project version
 
 [tool.hatch.version]
 scheme = "gradle"
 source = "gradle-properties"
-py-path = "doc/src/hexdoc_hexbackport/__version__.py"
-key = "modVersion"
+py-path = "doc/src/hexdoc_hextrapats/__version__.py"
+key = "mod_version"
+gradle-version-regex = { regex='^(.+?)(-.+)?$', repl='\1.{minecraft_version}\2' }
 
 # Python dependencies
 
 # required
-[tool.hatch.metadata.hooks.version-catalog]
+[tool.hatch.metadata.hooks.gradle-properties]
 dependencies = [
-    { package="hexdoc-hexcasting", op="~=", py-version="1.0", key="hexcasting" },
+    { package="hexdoc-hexcasting", op="~=", py-version="1.0", key="hexcasting_version" },
 ]
 
 # dev-only
@@ -48,20 +49,21 @@ dev = [
 
 [tool.hatch.build]
 only-include = [
-    "doc/src/hexdoc_hexbackport",
-    "gradle.properties", ]
+    "doc/src/hexdoc_hextrapats",
+    "gradle.properties",
+]
 artifacts = [
-    "/doc/src/hexdoc_hexbackport/_export/generated",
-    "/doc/src/hexdoc_hexbackport/__gradle_version__.py",
+    "/doc/src/hexdoc_hextrapats/_export/generated",
+    "/doc/src/hexdoc_hextrapats/__gradle_version__.py",
 ]
 
 [tool.hatch.build.targets.wheel]
 sources = ["doc/src"]
 
-# hexdoc entry point
+# hexdoc entry points
 
 [project.entry-points.hexdoc]
-hexbackport = "hexdoc_hexbackport._hooks:HexbackportPlugin"
+hextrapats = "hexdoc_hextrapats._hooks:HextrapatsPlugin"
 
 # linting
 

@@ -1,29 +1,62 @@
-build/
-*.ipr
-run/
-*.iws
-out/
-*.iml
-.gradle/
-output/
-bin/
-
-.classpath
-.project
-.idea/
-classes/
-.metadata
-.settings
-*.launch
-.DS_Store
-
-.architectury-transformer
-
 # hexdoc
 _site/
 _checkout/
 __gradle_version__.py
 .hexdoc*/
+
+# gradle
+build
+.gradle
+.gradle/
+.kotlin/
+build/
+out/
+classes/
+
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea
+
+# vscode
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# macos
+*.DS_Store
+
+# fabric
+run/
+
+# java
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
+
+# other
+eclipse
+run
+
+# Files from Forge MDK
+forge*changelog.txt
+
+Session.vim
+plot/
 
 # Python
 

@@ -1,8 +1,0 @@
-{
-  hexdoc: {
-    hexbackport: {
-      title: "HexBackport Book",
-      description: "Backports stuff from the 1.21 version of Hex Casting",
-    },
-  }
-}

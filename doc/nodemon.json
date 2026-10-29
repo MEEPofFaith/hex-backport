@@ -1,9 +1,7 @@
 {
     "watch": [
-        "doc/src",
-        "doc/resources",
-        "doc/hexdoc.toml",
-        "*/src/*/resources"
+        "doc",
+        "src/*/resources"
     ],
     "ignore": ["**/generated/**"],
     "ext": "jinja,html,css,js,ts,toml,json,json5,py",

@@ -1,14 +1,18 @@
 pluginManagement {
-    repositories {
-        // Repositories where you can get 
-        mavenCentral()
-        gradlePluginPortal()
-        maven { url = uri("https://maven.architectury.dev/") }
-        maven { url = uri("https://maven.fabricmc.net/") }
-        maven { url = uri("https://maven.minecraftforge.net/") }
-        maven { url = uri("https://maven.blamejared.com/") }
-    }
+	repositories {
+		maven {
+			name = "Fabric"
+			url = uri("https://maven.fabricmc.net/")
+		}
+		mavenCentral()
+		gradlePluginPortal()
+		maven { url = uri("https://maven.blamejared.com/") }
+	}
+
+	plugins {
+		id("fabric-loom") version providers.gradleProperty("loom_version")
+	}
 }
 
-rootProject.name = "HexBackport"
-include("common", "fabric", "forge")
+// Should match your modid
+rootProject.name = "hextrapats"
