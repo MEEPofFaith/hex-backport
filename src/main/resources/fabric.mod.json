@@ -8,29 +8,29 @@
 		"MEEP of Faith"
 	],
 	"contact": {
-		"sources": "https://github.com/MEEPofFaith/hextra"
+		"sources": "https://github.com/MEEPofFaith/hex-backport"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/hextrapats/icon.png",
+	"icon": "assets/hexbackport/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
 			{
-				"value": "com.meepoffaith.hextrapats.HextraPats",
+				"value": "com.meepoffaith.hexbackport.HexBackport",
 				"adapter": "kotlin"
 			}
 		],
 		"client": [
 			{
-				"value": "com.meepoffaith.client.HextrapatsClient",
+				"value": "com.meepoffaith.client.HexBackportClient",
 				"adapter": "kotlin"
 			}
 		]
 	},
 	"mixins": [
-		"hextrapats.mixins.json",
+		"hexbackport.mixins.json",
 		{
-			"config": "hextrapats.client.mixins.json",
+			"config": "hexbackport.client.mixins.json",
 			"environment": "client"
 		}
 	],

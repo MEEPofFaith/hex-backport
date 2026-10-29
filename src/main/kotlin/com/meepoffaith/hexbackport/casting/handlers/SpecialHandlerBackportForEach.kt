@@ -12,21 +12,20 @@ import at.petrak.hexcasting.api.casting.evaluatable
 import at.petrak.hexcasting.api.casting.getList
 import at.petrak.hexcasting.api.casting.math.HexPattern
 import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs
+import at.petrak.hexcasting.api.utils.TreeList
 import at.petrak.hexcasting.api.utils.asTranslatedComponent
 import at.petrak.hexcasting.api.utils.lightPurple
 import at.petrak.hexcasting.common.lib.hex.HexEvalSounds
 import at.petrak.hexcasting.xplat.IXplatAbstractions
-import com.meepoffaith.hexbackport.Hexbackport
 import com.meepoffaith.hexbackport.casting.eval.vm.FrameBackportForEach
-import com.meepoffaith.hexbackport.registry.HexbackportSpecialHandlers
-import net.minecraft.network.chat.Component
-import net.minecraft.resources.ResourceLocation
+import com.meepoffaith.hexbackport.init.SpecialHandlers
+import net.minecraft.text.Text
 
 class SpecialHandlerBackportForEach(val n: Int) : SpecialHandler {
     override fun act() = InnerAction(n)
 
-    override fun getName(): Component {
-        val key = IXplatAbstractions.INSTANCE.specialHandlerRegistry.getResourceKey(HexbackportSpecialHandlers.BACKPORT_FOREACH).get()
+    override fun getName(): Text {
+        val key = IXplatAbstractions.INSTANCE.specialHandlerRegistry.getKey(SpecialHandlers.BACKPORT_FOREACH).get()
         return HexAPI.instance().getSpecialHandlerI18nKey(key)
             .asTranslatedComponent(n).lightPurple
     }
@@ -47,7 +46,7 @@ class SpecialHandlerBackportForEach(val n: Int) : SpecialHandler {
             val contextStack = stack.takeLast(n)
             val stashedStack = stack.dropLast(n)
 
-            val frame = FrameBackportForEach(datums, instrList, contextStack, stashedStack, listOf())
+            val frame = FrameBackportForEach(datums, instrList, contextStack, stashedStack, TreeList.empty())
             val image2 = image.withUsedOp().copy(stack = listOf())
 
             return OperationResult(image2, listOf(), continuation.pushFrame(frame), HexEvalSounds.THOTH)

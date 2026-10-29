@@ -10,20 +10,21 @@ import at.petrak.hexcasting.api.casting.eval.vm.SpellContinuation
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.iota.ListIota
 import at.petrak.hexcasting.api.utils.NBTBuilder
+import at.petrak.hexcasting.api.utils.TreeList
 import at.petrak.hexcasting.api.utils.getList
 import at.petrak.hexcasting.api.utils.serializeToNBT
 import at.petrak.hexcasting.common.lib.hex.HexEvalSounds
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes
-import net.minecraft.nbt.CompoundTag
-import net.minecraft.nbt.Tag
-import net.minecraft.server.level.ServerLevel
+import net.minecraft.nbt.NbtCompound
+import net.minecraft.nbt.NbtElement
+import net.minecraft.server.world.ServerWorld
 
 data class FrameBackportForEach(
     val data: List<Iota>,
     val code: SpellList,
     val contextStack: List<Iota>,
     val stashedStack: List<Iota>,
-    val acc: List<Iota> // Apparently TreeList exists but is... unaccesible?
+    val acc: TreeList<Iota>
 ) : ContinuationFrame {
     /** When halting, we add the stack state at halt to the stack accumulator, then return the stashed stack, plus the accumulator. */
     override fun breakDownwards(stack: List<Iota>): Pair<Boolean, List<Iota>> {
@@ -33,14 +34,9 @@ data class FrameBackportForEach(
     }
 
     /** Step the Thoth computation, enqueueing one code evaluation. */
-    override fun evaluate(
-        continuation: SpellContinuation,
-        level: ServerLevel,
-        harness: CastingVM
-    ): CastResult {
+    override fun evaluate(continuation: SpellContinuation, level: ServerWorld, harness: CastingVM): CastResult {
         // Save the stack to the accumulator. On the first iteration, the stack will be empty.
-        val newAcc = acc.toMutableList()
-        newAcc.addAll(harness.image.stack)
+        val newAcc = acc.appendedAll(harness.image.stack)
 
         // If we still have data to process...
         val (newStack, newImage, newCont) = if (!data.isEmpty()) {
@@ -86,13 +82,13 @@ data class FrameBackportForEach(
     companion object{
         @JvmField
         val TYPE: ContinuationFrame.Type<FrameBackportForEach> = object : ContinuationFrame.Type<FrameBackportForEach>{
-            override fun deserializeFromNBT(tag: CompoundTag, world: ServerLevel): FrameBackportForEach{
+            override fun deserializeFromNBT(tag: NbtCompound, world: ServerWorld): FrameBackportForEach{
                 return FrameBackportForEach(
-                    HexIotaTypes.LIST.deserialize(tag.getList("data", Tag.TAG_COMPOUND), world)!!.list.toList(),
-                    HexIotaTypes.LIST.deserialize(tag.getList("code", Tag.TAG_COMPOUND), world)!!.list,
-                    HexIotaTypes.LIST.deserialize(tag.getList("contextStack", Tag.TAG_COMPOUND), world)!!.list.toList(),
-                    HexIotaTypes.LIST.deserialize(tag.getList("stashedStack", Tag.TAG_COMPOUND), world)!!.list.toList(),
-                    HexIotaTypes.LIST.deserialize(tag.getList("acc", Tag.TAG_COMPOUND), world)!!.list.toList(),
+                    HexIotaTypes.LIST.deserialize(tag.getList("data",  NbtElement.COMPOUND_TYPE), world)!!.list.toList(),
+                    HexIotaTypes.LIST.deserialize(tag.getList("code",  NbtElement.COMPOUND_TYPE), world)!!.list,
+                    HexIotaTypes.LIST.deserialize(tag.getList("contextStack",  NbtElement.COMPOUND_TYPE), world)!!.list.toList(),
+                    HexIotaTypes.LIST.deserialize(tag.getList("stashedStack",  NbtElement.COMPOUND_TYPE), world)!!.list.toList(),
+                    TreeList.from(HexIotaTypes.LIST.deserialize(tag.getList("acc",  NbtElement.COMPOUND_TYPE), world)!!.list),
                 )
             }
         }

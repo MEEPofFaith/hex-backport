@@ -1,19 +1,17 @@
-package com.meepoffaith.hextrapats.init
+package com.meepoffaith.hexbackport.init
 
 import at.petrak.hexcasting.api.casting.eval.vm.ContinuationFrame
 import at.petrak.hexcasting.xplat.IXplatAbstractions
-import com.meepoffaith.hextrapats.HextraPats
-import com.meepoffaith.hextrapats.casting.eval.vm.FrameForEachIndex
-import com.meepoffaith.hextrapats.casting.eval.vm.FrameMainForEach
+import com.meepoffaith.hexbackport.HexBackport
+import com.meepoffaith.hexbackport.casting.eval.vm.FrameBackportForEach
 import net.minecraft.registry.Registry
 
 object ContinuationTypes {
-    val FOREACH_INDEX = registerContinuation("foreach_index", FrameForEachIndex.TYPE)
-    val MAIN_FOREACH = registerContinuation("main_foreach", FrameMainForEach.TYPE)
+    val BACKPORT_FOREACH = registerContinuation("backport_foreach", FrameBackportForEach.TYPE)
 
     fun init(){}
 
     private fun registerContinuation(name: String, continuation: ContinuationFrame.Type<*>) :  ContinuationFrame.Type<*>{
-        return Registry.register(IXplatAbstractions.INSTANCE.continuationTypeRegistry, HextraPats.modLoc(name), continuation)
+        return Registry.register(IXplatAbstractions.INSTANCE.continuationTypeRegistry, HexBackport.modLoc(name), continuation)
     }
 }
