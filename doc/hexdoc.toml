@@ -30,7 +30,7 @@ show_landing_text = false
 _pattern_regex = { "!Raw" = '(register)\("(?P<name>[^"]+)"?,\s"(?P<signature>[qweasd]+)",\sHexDir\.(?P<startdir>\w+)' }
 
 [[extra.hexcasting.pattern_stubs]]
-path = "{$_project.src}/main/koltin/com/meepoffaith/hexbackport/init/Patterns.kt"
+path = "{$_project.src}/main/kotlin/com/meepoffaith/hexbackport/init/Patterns.kt"
 regex = "{^_pattern_regex}"
 
 # source paths

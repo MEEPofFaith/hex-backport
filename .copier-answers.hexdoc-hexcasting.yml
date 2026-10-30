@@ -16,4 +16,4 @@ mod_description: Backports the 1.21 version of Thoth.
 mod_display_name: HexBackport
 modid: hexbackport
 multiloader: false
-pattern_registry_path: main/koltin/com/meepoffaith/hexbackport/init/Patterns.kt
+pattern_registry_path: main/kotlin/com/meepoffaith/hexbackport/init/Patterns.kt
