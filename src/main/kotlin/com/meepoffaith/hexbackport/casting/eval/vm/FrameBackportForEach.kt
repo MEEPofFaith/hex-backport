@@ -67,12 +67,24 @@ data class FrameBackportForEach(
         )
     }
 
+    /*
     override fun serializeToNBT() = NBTBuilder {
         "data" %= data.serializeToNBT()
         "code" %= code.serializeToNBT()
         "contextStack" %= contextStack.serializeToNBT()
         "stashedStack" %= stashedStack.serializeToNBT()
         "acc" %= acc.serializeToNBT()
+    }
+     */
+
+    override fun serializeToNBT(): NbtCompound {
+        val tag = NbtCompound()
+        tag.put("data", data.serializeToNBT())
+        tag.put("code", code.serializeToNBT())
+        tag.put("contextStack", contextStack.serializeToNBT())
+        tag.put("stashedStack", stashedStack.serializeToNBT())
+        tag.put("acc", acc.serializeToNBT())
+        return tag
     }
 
     override fun size() = data.size + code.size() + acc.size + contextStack.size + stashedStack.size
