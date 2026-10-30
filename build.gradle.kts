@@ -36,7 +36,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		register("hextrapats") {
+		register("hexbackport") {
 			sourceSet(sourceSets.main.get())
 			sourceSet(sourceSets.getByName("client"))
 		}

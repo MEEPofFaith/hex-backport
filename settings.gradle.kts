@@ -15,4 +15,4 @@ pluginManagement {
 }
 
 // Should match your modid
-rootProject.name = "hextrapats"
+rootProject.name = "hexbackport"
