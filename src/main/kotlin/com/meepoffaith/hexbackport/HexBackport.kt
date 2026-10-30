@@ -1,6 +1,7 @@
 package com.meepoffaith.hexbackport
 
 import com.meepoffaith.hexbackport.init.ContinuationTypes
+import com.meepoffaith.hexbackport.init.Patterns
 import com.meepoffaith.hexbackport.init.SpecialHandlers
 import net.fabricmc.api.ModInitializer
 import net.minecraft.util.Identifier
@@ -13,6 +14,7 @@ object HexBackport : ModInitializer {
 
 	override fun onInitialize() {
 		ContinuationTypes.init()
+		Patterns.init()
 		SpecialHandlers.init()
     }
 

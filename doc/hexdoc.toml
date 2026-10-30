@@ -27,7 +27,7 @@ show_landing_text = false
 [extra.hexcasting]
 # regexes for parsing pattern registry files - if some or all of your patterns aren't being detected by hexdoc, this may need to be updated
 # NOTE: "!Raw" means "don't apply variable interpolation to this value"
-_pattern_regex = { "!Raw" = '(register|registerNoConsumeOp)\("(?P<name>[^"]+)"?,\s"(?P<signature>[qweasd]+)",\sHexDir\.(?P<startdir>\w+)' }
+_pattern_regex = { "!Raw" = '(register)\("(?P<name>[^"]+)"?,\s"(?P<signature>[qweasd]+)",\sHexDir\.(?P<startdir>\w+)' }
 
 [[extra.hexcasting.pattern_stubs]]
 path = "{$_project.src}/main/koltin/com/meepoffaith/hexbackport/init/Patterns.kt"
