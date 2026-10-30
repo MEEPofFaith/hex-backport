@@ -1,4 +1,4 @@
-modid = "hextrapats"
+modid = "hexbackport"
 book = "hexcasting:thehexbook"
 
 resource_dirs = [  # top takes priority
@@ -9,18 +9,18 @@ resource_dirs = [  # top takes priority
     { modid="minecraft" },
     { modid="hexdoc" },
 ]
-export_dir = "src/hexdoc_hextrapats/_export/generated"
+export_dir = "src/hexdoc_hexbackport/_export/generated"
 
 [template]
-icon = "{$_project.src}/main/resources/assets/hextrapats/icon.png"
+icon = "{$_project.src}/main/resources/assets/hexbackport/icon.png"
 include = [
-    "hextrapats",
+    "hexbackport",
     "hexcasting",
     "hexdoc",
 ]
 
 [template.args]
-mod_name = "Hextra Patterns"
+mod_name = "HexBackport"
 author = "MEEPofFaith"
 show_landing_text = false
 
@@ -30,7 +30,7 @@ show_landing_text = false
 _pattern_regex = { "!Raw" = '(register|registerNoConsumeOp)\("(?P<name>[^"]+)"?,\s"(?P<signature>[qweasd]+)",\sHexDir\.(?P<startdir>\w+)' }
 
 [[extra.hexcasting.pattern_stubs]]
-path = "{$_project.src}/main/kotlin/com/meepoffaith/hextrapats/init/Patterns.kt"
+path = "{$_project.src}/main/koltin/com/meepoffaith/hexbackport/init/Patterns.kt"
 regex = "{^_pattern_regex}"
 
 # source paths

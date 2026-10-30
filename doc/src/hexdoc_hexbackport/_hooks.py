@@ -9,24 +9,24 @@ from hexdoc.plugin import (
     hookimpl,
 )
 
-import hexdoc_hextrapats
+import hexdoc_hexbackport
 
-from .__gradle_version__ import FULL_VERSION, GRADLE_VERSION, MOD_VERSION, MINECRAFT_VERSION
+from .__gradle_version__ import FULL_VERSION, GRADLE_VERSION, MINECRAFT_VERSION
 from .__version__ import PY_VERSION
 
 
-class HextrapatsPlugin(ModPluginImpl):
+class HexbackportPlugin(ModPluginImpl):
     @staticmethod
     @hookimpl
     def hexdoc_mod_plugin(branch: str) -> ModPlugin:
-        return HextrapatsModPlugin(branch=branch)
+        return HexbackportModPlugin(branch=branch)
 
 
-class HextrapatsModPlugin(ModPluginWithBook):
+class HexbackportModPlugin(ModPluginWithBook):
     @property
     @override
     def modid(self) -> str:
-        return "hextrapats"
+        return "hexbackport"
 
     @property
     @override
@@ -36,7 +36,7 @@ class HextrapatsModPlugin(ModPluginWithBook):
     @property
     @override
     def mod_version(self) -> str:
-        return f"{MOD_VERSION}+{MINECRAFT_VERSION}"
+        return f"{GRADLE_VERSION}+{MINECRAFT_VERSION}"
 
     @property
     @override
@@ -54,4 +54,4 @@ class HextrapatsModPlugin(ModPluginWithBook):
     
     @override
     def jinja_template_root(self) -> tuple[Package, str]:
-        return hexdoc_hextrapats, "_templates"
+        return hexdoc_hexbackport, "_templates"

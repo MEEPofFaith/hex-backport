@@ -3,17 +3,17 @@
 _commit: v0.2.0
 _src_path: gh:hexdoc-dev/hexdoc-hexcasting-template
 advanced: false
-github_repo: hextra-patterns
+github_repo: hex-backport
 github_user: MEEPofFaith
 gradle_deps_type: gradle.properties
 gradle_hex_version_key: hexcasting_version
 gradle_minecraft_version_key: minecraft_version
 gradle_mod_version_key: mod_version
-main_branch: koltin-rewrite
+main_branch: main
 minecraft_version: 1.20.1
 minecraft_version_in_mod_version: true
-mod_description: Random pattern ideas that come to my head. Mostly utility.
-mod_display_name: Hextra Patterns
-modid: hextrapats
+mod_description: Backports the 1.21 version of Thoth.
+mod_display_name: HexBackport
+modid: hexbackport
 multiloader: false
-pattern_registry_path: main/koltin/com/meepoffaith/hextrapats/init/Patterns.kt
+pattern_registry_path: main/koltin/com/meepoffaith/hexbackport/init/Patterns.kt

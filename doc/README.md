@@ -1,8 +1,8 @@
-# hexdoc-hextrapats
+# hexdoc-hexbackport
 
-Python web book docgen and [hexdoc](https://pypi.org/project/hexdoc) plugin for Hextra Patterns.
+Python web book docgen and [hexdoc](https://pypi.org/project/hexdoc) plugin for HexBackport.
 
-Random pattern ideas that come to my head. Mostly utility.
+Backports the 1.21 version of Thoth.
 
 ## Version scheme
 
@@ -31,9 +31,9 @@ source .venv/bin/activate  # everything else
 
 For local testing, create a file called `.env` in the repo root following this template:
 ```sh
-GITHUB_REPOSITORY=MEEPofFaith/hextra-patterns
-GITHUB_SHA=koltin-rewrite
-GITHUB_PAGES_URL=https://meepoffaith.github.io/hextra-patterns
+GITHUB_REPOSITORY=MEEPofFaith/hex-backport
+GITHUB_SHA=main
+GITHUB_PAGES_URL=https://meepoffaith.github.io/hex-backport
 ```
 
 Useful commands:

@@ -8,8 +8,8 @@ build-backend = "hatchling.build"
 # project metadata
 
 [project]
-name = "hexdoc-hextrapats"
-description = "Random pattern ideas that come to my head. Mostly utility."
+name = "hexdoc-hexbackport"
+description = "Backports the 1.21 version of Thoth."
 readme = "doc/README.md"
 authors = [
     { name="MEEPofFaith" },
@@ -19,15 +19,15 @@ requires-python = ">=3.12"
 dynamic = ["version", "dependencies", "optional-dependencies"]
 
 [project.urls]
-Homepage = "https://meepoffaith.github.io/hextra-patterns"
-Source = "https://github.com/MEEPofFaith/hextra-patterns"
+Homepage = "https://meepoffaith.github.io/hex-backport"
+Source = "https://github.com/MEEPofFaith/hex-backport"
 
 # project version
 
 [tool.hatch.version]
 scheme = "gradle"
 source = "gradle-properties"
-py-path = "doc/src/hexdoc_hextrapats/__version__.py"
+py-path = "doc/src/hexdoc_hexbackport/__version__.py"
 key = "mod_version"
 gradle-version-regex = { regex='^(.+?)(-.+)?$', repl='\1.{minecraft_version}\2' }
 
@@ -49,12 +49,12 @@ dev = [
 
 [tool.hatch.build]
 only-include = [
-    "doc/src/hexdoc_hextrapats",
+    "doc/src/hexdoc_hexbackport",
     "gradle.properties",
 ]
 artifacts = [
-    "/doc/src/hexdoc_hextrapats/_export/generated",
-    "/doc/src/hexdoc_hextrapats/__gradle_version__.py",
+    "/doc/src/hexdoc_hexbackport/_export/generated",
+    "/doc/src/hexdoc_hexbackport/__gradle_version__.py",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -63,7 +63,7 @@ sources = ["doc/src"]
 # hexdoc entry points
 
 [project.entry-points.hexdoc]
-hextrapats = "hexdoc_hextrapats._hooks:HextrapatsPlugin"
+hexbackport = "hexdoc_hexbackport._hooks:HexbackportPlugin"
 
 # linting
 

@@ -1,0 +1,6 @@
+{
+  "hexdoc.hexbackport": {
+    title: "HexBackport Book",
+    description: "Backports the 1.21 version of Thoth.",
+  },
+}
